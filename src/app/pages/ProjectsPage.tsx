@@ -12,6 +12,8 @@ const legoBot2 = "/images/lego-bot-2.jpg";
 const reequipLogo = "/images/reequip-logo.png";
 const rocketImage1 = "/images/rocket-1.jpg";
 const rocketImage2 = "/images/rocket-2.jpg";
+const ignitorImage = "/images/Ignitor.jpg";
+
 
 export function ProjectsPage() {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -172,6 +174,30 @@ export function ProjectsPage() {
       challenges: [
         "Shielding the plastic from the rocket motor.",
         "Keeping the rail easy to store and take apart",
+      ],
+      outcomes: [
+        "Successful rocket launches",
+        "Rocketry Society resources",
+      ],
+    },
+    {
+      title: "Rocket Motor Initiation Circuit",
+      description:
+        "Designed and built an electrical initiation circuit",
+      fullDescription:
+        "This project involved designing and building an electrical initiation circuit to start E class rocket motors. The project features safety switches and warning lights as required by the CAR. This involved prototyping with a breadboard before ordering and soldering the final components.",
+      image: ignitorImage,
+      images: [ignitorImage],
+      tags: ["Electrical Design", "Prototyping", "Rocketry"],
+      category: "Rocketry",
+      demo: "https://youtu.be/a_mvPZzFEHo",
+      year: "2026",
+      role: "Builder",
+      teamSize: "1",
+      duration: "2 Hours",
+      challenges: [
+        "Designing continuity and safety indicators",
+        "Soldering small electrical components",
       ],
       outcomes: [
         "Successful rocket launches",
