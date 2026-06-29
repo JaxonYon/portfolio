@@ -13,6 +13,10 @@ const reequipLogo = "/images/reequip-logo.png";
 const rocketImage1 = "/images/rocket-1.jpg";
 const rocketImage2 = "/images/rocket-2.jpg";
 const ignitorImage = "/images/Ignitor.jpg";
+const cloudToucherImage1 = "/images/cloudtoucher1.jpg";
+const cloudToucherImage2 = "/images/cloudtoucher2.jpg";
+const cloudToucherImage3 = "/images/cloudtoucher3.jpg";
+const cloudToucherImage4 = "/images/cloudtoucher4.jpg";
 
 
 export function ProjectsPage() {
@@ -22,6 +26,36 @@ export function ProjectsPage() {
 
   const projects = [
     {
+      title: "CloudTickler V1",
+      description:
+        "Designed and Built a fully functional D class Model Rocket. 4 Successful Launches and Recoveries",
+      fullDescription:
+        "A complete mechanical design project involving the creation of a functional rocket from concept to testing to launch, leading to 4 successful rocket launches and recoveries with no major damage.", 
+      image: cloudToucherImage1,
+      images: [cloudToucherImage2, cloudToucherImage3, cloudToucherImage4],
+      tags: [
+        "Mechanical Design",
+        "Prototyping",
+        "Rocketry"
+      ],
+      categories: ["Mechanical Design", "Rocketry"],
+      demo: "https://youtube.com/shorts/citFdjzN0q0",
+      year: "2026",
+      role: "Mechanical & Electrical Engineer",
+      teamSize: "2 members",
+      duration: "1 month",
+      challenges: [
+        "Balancing weight to thrust ratios",
+        "Getting accurate OpenRocket Simulations",
+        "Stability calculations with center of mass and center of pressure",
+      ],
+      outcomes: [
+        "4 Successful launches with zero major damage.",
+        "Safe Recovery with zero injuries.",
+        "Project demonstrated practical application of Engineering Design.",
+      ],
+    },
+        {
       title: "3D Printed Motorized Boat",
       description:
         "Designed, 3D printed, and tested a fully functional motorized boat with propulsion system. Complete CAD design, iterative prototyping, and water testing to validate buoyancy, stability, and motor efficiency. Successfully demonstrated in pool testing scenarios.",
@@ -165,7 +199,7 @@ export function ProjectsPage() {
       image: rocketImage1,
       images: [rocketImage1, rocketImage2],
       tags: ["Mechanical Design", "Prototyping", "Rocketry"],
-      category: "Rocketry",
+      categories: ["Rocketry", "Mechanical Design"],
       demo: "https://youtu.be/a_mvPZzFEHo",
       year: "2026",
       role: "Builder",

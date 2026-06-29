@@ -21,7 +21,7 @@ export function ResumePage() {
       school: "Saint Mary's University",
       location: "Halifax, Nova Scotia",
       period: "Aug 2025 - Jun 2027",
-      gpa: "4.15/4.3",
+      gpa: "4.18/4.3",
       highlights: [],
     },
     {

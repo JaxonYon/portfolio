@@ -20,7 +20,7 @@ export function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-slate-400">
               <p>
-                I'm a first year engineering student with a passion for creating intelligent systems
+                I'm a Second year engineering student with a passion for creating intelligent systems
                 that bridge the physical and digital worlds. My journey in engineering started with a
                 fascination for robotics and has evolved into a comprehensive understanding of mechanical
                 design, electronics, and software development.
@@ -52,7 +52,7 @@ export function About() {
                   <div className="h-px bg-slate-800" />
                   <div className="flex items-center justify-between">
                     <span className="text-slate-400">GPA</span>
-                    <span className="text-cyan-400">4.15/4.3</span>
+                    <span className="text-cyan-400">4.18/4.3</span>
                   </div>
                   <div className="h-px bg-slate-800" />
                   <div className="flex items-center justify-between">
