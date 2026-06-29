@@ -30,7 +30,7 @@ export function ProjectsPage() {
       description:
         "Designed and Built a fully functional D class Model Rocket. 4 Successful Launches and Recoveries",
       fullDescription:
-        "A complete mechanical design project involving the creation of a functional rocket from concept to testing to launch, leading to 4 successful rocket launches and recoveries with no major damage.", 
+        "A complete design project involving the creation of a functional rocket from concept to testing to launch, leading to 4 successful rocket launches and recoveries with no major damage.", 
       image: cloudToucherImage1,
       images: [cloudToucherImage2, cloudToucherImage3, cloudToucherImage4],
       tags: [
@@ -39,9 +39,9 @@ export function ProjectsPage() {
         "Rocketry"
       ],
       categories: ["Mechanical Design", "Rocketry"],
-      demo: "https://youtube.com/shorts/citFdjzN0q0",
+      demo: "https://youtube.com/shorts/N4Sxm8ZpTCI",
       year: "2026",
-      role: "Mechanical & Electrical Engineer",
+      role: "Mechanical Engineer",
       teamSize: "2 members",
       duration: "1 month",
       challenges: [
