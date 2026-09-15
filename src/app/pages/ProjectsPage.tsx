@@ -26,7 +26,7 @@ export function ProjectsPage() {
 
   const projects = [
     {
-      title: "CloudTickler V1",
+      title: "CloudToucher V1",
       description:
         "Designed and Built a fully functional D class Model Rocket. 4 Successful Launches and Recoveries",
       fullDescription:
