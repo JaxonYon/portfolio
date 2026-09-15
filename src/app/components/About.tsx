@@ -52,7 +52,7 @@ export function About() {
                   <div className="h-px bg-slate-800" />
                   <div className="flex items-center justify-between">
                     <span className="text-slate-400">GPA</span>
-                    <span className="text-cyan-400">4.18/4.3</span>
+                    <span className="text-cyan-400">4.16/4.3</span>
                   </div>
                   <div className="h-px bg-slate-800" />
                   <div className="flex items-center justify-between">

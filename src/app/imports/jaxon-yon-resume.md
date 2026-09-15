@@ -7,7 +7,7 @@ Dartmouth, Nova Scotia, B2V 2B9
 EDUCATION
 	
 Bachelor of Science with Diploma in Engineering	Aug 2025 - Jun 2027
-Saint Mary’s University • Halifax, Nova Scotia • 4.15/4.3
+Saint Mary’s University • Halifax, Nova Scotia • 4.16/4.3
 
 International Bacheloreat (IB) High school	Oct 2022 - Jul 2025
 Cole Harbour District High School • Dartmouth	 • 36
@@ -53,6 +53,10 @@ CHDHS Student Council • Dartmouth
 
 AWARDS AND HONOURS
 	
+James Ryan Engineering Scholarship	2026
+
+2026 Engineers Nova Scotia Future Engineer First Year Award	2026
+	
 Atlantic Engineering Competition School Champions
 	2025
 Designed, Tested, and Produced a reliable and effective catapult from limited supplies, leading to first place and qualifying for the Regional Championship.
@@ -77,8 +81,6 @@ Nova Scotia Teacher’s Union Bursary	2025
 
 Saint Mary’s University Entrance Award	2025
 
-The Erich Burckhardt Foundation Award	2025
+The Erich Burckhardt Foundation Award   2025
 
-
-             
-              Professional Website                        LinkedIn         
+Sgt Paul Angus MacGillivary Bursary 2026

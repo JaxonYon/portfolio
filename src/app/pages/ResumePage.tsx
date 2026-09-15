@@ -159,6 +159,24 @@ export function ResumePage() {
         "Prestigious scholarship awarded for extreme academic merit in STEM fields, limited to 50 students",
     },
     {
+      title: "Sgt Paul Angus MacGillivary Bursary",
+      year: "2025",
+      description:
+        "Merit-based scholarship recognizing academic achievement and community involvement",
+    },
+    {
+      title: "2026 Engineers Nova Scotia Future Engineer First Year Award",
+      year: "2026",
+      description:
+        "Merit-based scholarship recognizing academic achievement and community involvement",
+    },
+    {
+      title: "James Ryan Engineering Scholarship",
+      year: "2026",
+      description:
+        "Merit-based scholarship recognizing academic achievement and community involvement",
+    },
+    {
       title: "Boston Pizza International Scholarship",
       year: "2025",
       description:
