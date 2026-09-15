@@ -52,7 +52,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl sm:text-4xl lg:text-5xl text-slate-400 mb-6"
           >
-            First Year Engineering Student
+            Second Year Engineering Student
           </motion.h2>
 
           <motion.p
