@@ -22,6 +22,9 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+export const hasDemo = (url?: string) => !!url && url !== '#';
+export const demoLabel = (url: string) => (/youtu\.?be/.test(url) ? 'Video' : 'Live Demo');
+
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   if (!project) return null;
 
@@ -66,17 +69,19 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl text-slate-100 mb-4">{project.title}</h2>
-              <div className="flex gap-4">
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors"
-                >
-                  <ExternalLink size={20} />
-                  <span className="font-mono text-sm">Live Demo</span>
-                </a>
-              </div>
+              {hasDemo(project.demo) && (
+                <div className="flex gap-4">
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    <ExternalLink size={20} />
+                    <span className="font-mono text-sm">{demoLabel(project.demo)}</span>
+                  </a>
+                </div>
+              )}
             </div>
 
             {/* Main Image */}
