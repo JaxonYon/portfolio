@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ExternalLink, Calendar, User } from 'lucide-react';
+import { X, ExternalLink, Calendar, User, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from './image/ImageWithFallback';
 
 interface ProjectModalProps {
@@ -27,7 +28,33 @@ export const hasDemo = (url?: string) => !!url && url !== '#';
 export const demoLabel = (url: string) => (/youtu\.?be/.test(url) ? 'Video' : 'Live Demo');
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  // Index into viewerImages of the photo open full-size, or null when the viewer is closed
+  const [viewerIndex, setViewerIndex] = useState<number | null>(null);
+
+  const viewerImages = project
+    ? Array.from(new Set([project.image, ...(project.images ?? [])]))
+    : [];
+
+  useEffect(() => {
+    setViewerIndex(null);
+  }, [project]);
+
+  useEffect(() => {
+    if (viewerIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setViewerIndex(null);
+      else if (e.key === 'ArrowRight') setViewerIndex((i) => (i === null ? i : (i + 1) % viewerImages.length));
+      else if (e.key === 'ArrowLeft') setViewerIndex((i) => (i === null ? i : (i - 1 + viewerImages.length) % viewerImages.length));
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [viewerIndex, viewerImages.length]);
+
   if (!project) return null;
+
+  const openViewer = (src: string) => setViewerIndex(Math.max(0, viewerImages.indexOf(src)));
+  const step = (delta: number) =>
+    setViewerIndex((i) => (i === null ? i : (i + delta + viewerImages.length) % viewerImages.length));
 
   return (
     <AnimatePresence>
@@ -86,7 +113,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
 
             {/* Main Image */}
-            <div className="relative mb-6 rounded-lg overflow-hidden h-64 sm:h-80 bg-slate-950">
+            <div
+              onClick={() => openViewer(project.image)}
+              className="relative mb-6 rounded-lg overflow-hidden h-64 sm:h-80 bg-slate-950 cursor-zoom-in"
+            >
               {/* For tall photos: a blurred copy fills the frame so the whole photo can be shown uncropped */}
               {project.showWholeImage && (
                 <img
@@ -107,7 +137,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             {project.images && project.images.length > 0 && (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
                 {project.images.map((img, index) => (
-                  <div key={index} className="rounded-lg overflow-hidden">
+                  <div
+                    key={index}
+                    onClick={() => openViewer(img)}
+                    className="rounded-lg overflow-hidden cursor-zoom-in"
+                  >
                     <ImageWithFallback
                       src={img}
                       alt={`${project.title} ${index + 1}`}
@@ -195,6 +229,49 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
           </div>
         </motion.div>
+
+        {/* Full-size photo viewer */}
+        {viewerIndex !== null && (
+          <div
+            onClick={() => setViewerIndex(null)}
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 p-4 cursor-zoom-out"
+          >
+            <img
+              src={viewerImages[viewerIndex]}
+              alt={`${project.title} ${viewerIndex + 1}`}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-full max-h-full object-contain rounded-lg cursor-default"
+            />
+            <button
+              onClick={() => setViewerIndex(null)}
+              aria-label="Close photo"
+              className="absolute top-4 right-4 p-2 bg-slate-800/80 hover:bg-slate-700 rounded-lg transition-colors"
+            >
+              <X size={24} className="text-slate-300" />
+            </button>
+            {viewerImages.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => { e.stopPropagation(); step(-1); }}
+                  aria-label="Previous photo"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-slate-800/80 hover:bg-slate-700 rounded-lg transition-colors"
+                >
+                  <ChevronLeft size={28} className="text-slate-300" />
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); step(1); }}
+                  aria-label="Next photo"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-slate-800/80 hover:bg-slate-700 rounded-lg transition-colors"
+                >
+                  <ChevronRight size={28} className="text-slate-300" />
+                </button>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-slate-800/80 rounded-full text-slate-300 text-sm font-mono">
+                  {viewerIndex + 1} / {viewerImages.length}
+                </div>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </AnimatePresence>
   );

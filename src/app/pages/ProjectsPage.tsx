@@ -317,11 +317,11 @@ export function ProjectsPage() {
 
   const categories = [
     "All",
+    "Rocketry",
     "Robotics",
     "Software Development",
     "Research & Development",
     "Mechanical Design",
-    "Rocketry",
   ];
 
   const filteredProjects =
