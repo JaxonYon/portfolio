@@ -70,6 +70,7 @@ export function ProjectsPage() {
       fullDescription:
         "Fledgling is a flight computer built on an Adafruit Feather ESP32-S3, with an LSM6DSO32 IMU and a BMP388 barometer. The flight firmware is written from scratch in C++: it talks to both sensors at the register level, and the BMP388 pressure maths is written from the datasheet. On the pad it runs a 60-second countdown, checks that the rocket is nose-up before arming, then holds the last ~2.3 s of data in memory. Liftoff triggers on more than 3 g for 50 ms, or a 10 m barometric rise as a backup. It then records 120 s of accel and gyro data at about 780 Hz and pressure at 50 Hz to a dedicated 2 MB flash partition. A Python script pulls the log afterwards and verifies it with a checksum, and the board won't re-arm over a log that hasn't been downloaded. A piezo beeper signals each state, because there's no screen at the pad.",
       image: fledglingRocket,
+      showWholeImage: true,
       images: [fledglingRocket, fledglingBreadboard],
       tags: [
         "ESP32-S3",
@@ -104,6 +105,7 @@ export function ProjectsPage() {
       fullDescription:
         "A complete design project taking a D-class model rocket from concept and OpenRocket simulation through to flight. Before the first launch, we tuned the stability margin (the distance between the centre of gravity and the centre of pressure) and the thrust-to-weight ratio in simulation. The rocket flew from the launch rail and ignition controller in the E-Class Rocket Launch System project, and completed 4 launches and recoveries with no major damage.",
       image: cloudToucherImage1,
+      showWholeImage: true,
       images: [cloudToucherImage2, cloudToucherImage3, cloudToucherImage4],
       tags: [
         "Mechanical Design",
@@ -164,6 +166,7 @@ export function ProjectsPage() {
       fullDescription:
         "A complete ground launch system for model rocket launches. The ignition controller starts motors up to E-class and includes a continuity check, safety switch and warning lights as required by the Canadian Association of Rocketry (CAR). The circuit was prototyped on a breadboard before the final components were ordered and soldered. The launch rail and pad were built exclusively from hardware store and household materials, and designed to be easy to modify, take apart and store.",
       image: rocketImage1,
+      showWholeImage: true,
       images: [rocketImage1, rocketImage2, ignitorImage],
       tags: [
         "Electrical Design",
@@ -394,12 +397,25 @@ export function ProjectsPage() {
                 onClick={() => setSelectedProject(project)}
                 className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-colors group cursor-pointer"
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden h-48 bg-slate-950">
+                  {/* For tall photos: a blurred copy fills the frame so the whole photo can be shown uncropped */}
+                  {project.showWholeImage && (
+                    <img
+                      src={project.image}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-50"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-cyan-500/20 group-hover:bg-transparent transition-colors z-10" />
                   <ImageWithFallback
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className={`relative w-full h-full transition-transform duration-300 ${
+                      project.showWholeImage
+                        ? "object-contain group-hover:scale-105"
+                        : "object-cover group-hover:scale-110"
+                    }`}
                   />
                   <div className="absolute top-4 right-4 z-20">
                     <span className="px-3 py-1 bg-slate-950/80 backdrop-blur-sm text-cyan-400 rounded-full text-sm font-mono">

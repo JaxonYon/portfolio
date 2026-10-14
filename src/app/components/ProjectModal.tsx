@@ -8,6 +8,7 @@ interface ProjectModalProps {
     description: string;
     fullDescription: string;
     image: string;
+    showWholeImage?: boolean;
     images?: string[];
     tags: string[];
     category: string;
@@ -85,11 +86,20 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
 
             {/* Main Image */}
-            <div className="mb-6 rounded-lg overflow-hidden">
+            <div className="relative mb-6 rounded-lg overflow-hidden h-64 sm:h-80 bg-slate-950">
+              {/* For tall photos: a blurred copy fills the frame so the whole photo can be shown uncropped */}
+              {project.showWholeImage && (
+                <img
+                  src={project.image}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-50"
+                />
+              )}
               <ImageWithFallback
                 src={project.image}
                 alt={project.title}
-                className="w-full h-64 sm:h-80 object-cover"
+                className={`relative w-full h-full ${project.showWholeImage ? 'object-contain' : 'object-cover'}`}
               />
             </div>
 
