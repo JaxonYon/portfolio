@@ -229,10 +229,7 @@ export function ProjectsPage() {
       fullDescription:
         "LocalLink is a comprehensive trip planning platform that leverages artificial intelligence to provide personalized travel recommendations and itinerary planning. As the lead developer and project manager, I was responsible for the complete development lifecycle - from initial concept through deployment. The platform integrates multiple AI models for destination recommendations, activity suggestions, and budget optimization. Built with a modern tech stack including Python, Javascript, and cloud services,  I managed a team of 3 developers, coordinated with stakeholders for requirements gathering, conducted sprint planning, and ensured timely delivery of features while maintaining high code quality standards.",
       image: localLinkLogo,
-      images: [
-        "https://images.unsplash.com/photo-1761198879998-6bb91fd6797c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmF2ZWwlMjBwbGFubmluZyUyMG1vYmlsZSUyMGFwcHxlbnwxfHx8fDE3NjY0NjI2NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-        "https://images.unsplash.com/photo-1759884247144-53d52c31f859?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwY29sbGFib3JhdGlvbiUyMHNvZnR3YXJlfGVufDF8fHx8MTc2NjU0NDgwNHww&ixlib=rb-4.1.0&q=80&w=1080",
-      ],
+      images: [],
       tags: ["Python", "Javascript", "AI/ML"],
       category: "Software Development",
       demo: "https://locallinkcanada.com/",
@@ -257,10 +254,7 @@ export function ProjectsPage() {
       fullDescription:
         "ReEquip set out to provide recycled sports equipment for underprivileged youth. As Director of Research & Development, I led the materials and patent research to select recycled, non-petroleum-based plastics suited to youth sports equipment, and compiled monthly technical reports for the team's Project Managers. The initiative addresses two problems at once: plastic waste and youth access to sports.",
       image: reequipLogo,
-      images: [
-        "https://images.unsplash.com/photo-1581166931041-b62d92d52852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXRlcmlhbHMlMjByZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MXx8fHwxNzY2NjcwNTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "https://images.unsplash.com/photo-1759868412016-8b7da190992a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWN5Y2xlZCUyMHBsYXN0aWMlMjBzcG9ydHMlMjBlcXVpcG1lbnR8ZW58MXx8fHwxNzY2NjcwNTEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      ],
+      images: [],
       tags: [
         "Materials Science",
         "Research",
