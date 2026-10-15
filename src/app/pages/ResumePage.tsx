@@ -64,7 +64,7 @@ export function ResumePage() {
       title: "3D-Printed Motorized Boat",
       period: "2025",
       details: [
-        "Designed the hull and drivetrain in SolidWorks and printed in PLA as part of a three-person team; DC motor and propeller, with electronics in a waterproof compartment",
+        "Designed the hull and drivetrain in SolidWorks and printed in PLA as part of a three-person team; DC motor and paddle wheels, with electronics in a waterproof compartment",
       ],
     },
   ];
@@ -164,72 +164,21 @@ export function ResumePage() {
   ];
 
   const awards = [
+    { title: "Frank E. Milne Scholarship", year: "2025, 2026" },
+    { title: "James Ryan Engineering Scholarship", year: "2026" },
+    { title: "Engineers Nova Scotia Future Engineer First Year Award", year: "2026" },
     {
-      title: "Frank E. Milne Scholarship",
-      year: "2025, 2026",
-      description:
-        "Prestigious scholarship awarded for extreme academic merit in STEM fields, limited to 50 students",
-    },
-    {
-      title: "James Ryan Engineering Scholarship",
+      title: "Atlantic Engineering Competition — School Champion; 3rd of 17 teams, Atlantic Regional",
       year: "2026",
     },
-    {
-      title: "Engineers Nova Scotia Future Engineer First Year Award",
-      year: "2026",
-    },
-    {
-      title: "Atlantic Engineering Competition School Champions, Regional Bronze",
-      year: "2025",
-      description:
-        "Designed, Tested, and Produced a reliable and effective catapult from limited supplies, leading to first place and qualifying for the Regional Championship. Selected to compete after winning at the university level; placed 3rd out of 17 teams across the Atlantic provinces. Developed a creative engineering solution to a surprise prompt, testing the ability to maintain performance and accuracy under a short deadline.",
-    },
-    {
-      title:
-        "Lockheed Martin CyberQUEST - Two-Time Provincial Champion",
-      year: "2024, 2025",
-      description:
-        "Provincial champion in annual high school cyber competition featuring CTF challenges created by Lockheed Martin cybersecurity engineers, including intrusion scenarios, steganography, reverse engineering, OS hacks, packet capture, web exploits, and social engineering",
-    },
-    {
-      title: "Saint Mary's University Entrance Award",
-      year: "2025",
-      description:
-        "Entrance scholarship awarded for academic excellence",
-    },
-    {
-      title: "The Erich Burckhardt Foundation Award",
-      year: "2025",
-      description:
-        "Award recognizing outstanding student achievement",
-    },
-    {
-      title: "Boston Pizza International Scholarship",
-      year: "2025",
-      description:
-        "Merit-based scholarship recognizing academic achievement and community involvement",
-    },
-    {
-      title: "Cole Harbour Foundation Scholarship",
-      year: "2025",
-      description:
-        "Community scholarship supporting post-secondary education",
-    },
-    {
-      title: "Huestis Insurance Bursary",
-      year: "2025",
-      description:
-        "Bursary supporting students pursuing higher education",
-    },
-    {
-      title: "Nova Scotia Teacher's Union Bursary",
-      year: "2025",
-      description: "Financial support award from the NSTU",
-    },
-    {
-      title: "Sgt Paul Angus MacGillivary Bursary",
-      year: "2025",
-    },
+    { title: "Lockheed Martin CyberQUEST — Two-time Provincial Champion", year: "2024, 2025" },
+    { title: "Saint Mary's University Entrance Award", year: "2025" },
+    { title: "Erich Burckhardt Foundation Award", year: "2025" },
+    { title: "Boston Pizza International Scholarship", year: "2025" },
+    { title: "Cole Harbour Foundation Scholarship", year: "2025" },
+    { title: "Huestis Insurance Bursary", year: "2025" },
+    { title: "Nova Scotia Teachers Union Bursary", year: "2025" },
+    { title: "Sgt Paul Angus MacGillivary Bursary", year: "2025" },
   ];
 
   return (
@@ -533,7 +482,7 @@ export function ResumePage() {
                   key={award.title}
                   className="bg-slate-900 border border-slate-800 rounded-lg p-4"
                 >
-                  <div className="flex justify-between items-start mb-2">
+                  <div className="flex justify-between items-start">
                     <h3 className="text-slate-100">
                       {award.title}
                     </h3>
@@ -541,11 +490,6 @@ export function ResumePage() {
                       {award.year}
                     </span>
                   </div>
-                  {award.description && (
-                    <p className="text-slate-400 text-sm">
-                      {award.description}
-                    </p>
-                  )}
                 </div>
               ))}
             </div>

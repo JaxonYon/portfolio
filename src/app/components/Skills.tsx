@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
-import { Cpu, Wrench, Code, Zap, Brain, Cog } from 'lucide-react';
+import { Cpu, Wrench, Code, Zap, Cog, Languages } from 'lucide-react';
 
 export function Skills() {
   const [ref, isInView] = useInView({ threshold: 0.2 });
@@ -9,12 +9,12 @@ export function Skills() {
     {
       icon: Cpu,
       title: 'Embedded Systems',
-      skills: ['Arduino'],
+      skills: ['Arduino', 'ESP32'],
     },
     {
       icon: Wrench,
       title: 'Mechanical Design',
-      skills: ['SolidWorks', '3D Printing'],
+      skills: ['SolidWorks', 'FDM 3D Printing', 'OpenRocket'],
     },
     {
       icon: Code,
@@ -24,17 +24,17 @@ export function Skills() {
     {
       icon: Zap,
       title: 'Electronics',
-      skills: ['Soldering', 'Circuit Analysis'],
-    },
-    {
-      icon: Brain,
-      title: 'AI & ML',
-      skills: ['AI integration'],
+      skills: ['Soldering', 'Circuit Prototyping', 'Circuit Analysis'],
     },
     {
       icon: Cog,
       title: 'Control Systems',
       skills: ['Python and AHK Automation'],
+    },
+    {
+      icon: Languages,
+      title: 'Languages & Clearance',
+      skills: ['English & French (bilingual)', 'Secret security clearance'],
     },
   ];
 
