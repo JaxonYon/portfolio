@@ -136,7 +136,7 @@ export function ProjectsPage() {
       description:
         "Designed and 3D printed a working motorized boat in a three-person team, with the hull and drivetrain modelled in SolidWorks and printed in PLA.",
       fullDescription:
-        "The hull and drivetrain were designed in SolidWorks and 3D printed in PLA, with careful attention to weight distribution, buoyancy and structural strength. A DC motor, driven by a motor driver circuit, turns the paddle wheels through a gear drive, and the electronics sit in a waterproof compartment that stays accessible for battery changes. In its water test the boat floated stably and drove under its own power with steering control.",
+        "The hull and drivetrain were designed in SolidWorks and 3D printed in PLA, with careful attention to weight distribution, buoyancy and structural strength. A DC motor turns the paddle wheels through a gear drive. In its water test the boat floated stably and drove under its own power.",
       image: boatImage1,
       images: [boatImage1, boatImage2, boatRender, ...boatDrawings],
       tags: [
@@ -158,7 +158,7 @@ export function ProjectsPage() {
         "Balancing the strength of 3D printed parts against weight",
       ],
       outcomes: [
-        "Floated stably and drove under its own power with steering control in its water test",
+        "Floated stably and drove under its own power in its water test",
       ],
     },
     {
@@ -167,7 +167,7 @@ export function ProjectsPage() {
         "Designed and built a complete launch system for model rockets: an electrical ignition controller for up to E-class motors and a collapsible launch rail and pad.",
       fullDescription:
         "A complete ground launch system for model rocket launches. The ignition controller starts motors up to E-class and includes a continuity check, safety switch and warning lights as required by the Canadian Association of Rocketry (CAR). The circuit was prototyped on a breadboard before the final components were ordered and soldered. The launch rail and pad were built exclusively from hardware store and household materials, and designed to be easy to modify, take apart and store.",
-      image: rocketImage1,
+      image: ignitorImage,
       showWholeImage: true,
       images: [rocketImage1, rocketImage2, ignitorImage],
       tags: [
