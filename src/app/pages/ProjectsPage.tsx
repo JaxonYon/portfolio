@@ -8,6 +8,8 @@ const localLinkLogo = "/images/local-link-logo.png";
 const boatImage1 = "/images/boat-1.jpg";
 const boatImage2 = "/images/boat-2.jpg";
 const boatCad = "/images/boat-cad.png";
+const boatRender = "/images/boat-render.png";
+const boatDrawings = [1, 2, 3, 4, 5].map((n) => `/images/boat-drawing-${n}.png`);
 const legoBot1 = "/images/lego-bot-1.jpg";
 const legoBot2 = "/images/lego-bot-2.jpg";
 const reequipLogo = "/images/reequip-logo.png";
@@ -137,7 +139,7 @@ export function ProjectsPage() {
       fullDescription:
         "The hull and drivetrain were designed in SolidWorks and 3D printed in PLA, with careful attention to weight distribution, buoyancy and structural strength. A DC motor, driven by a motor driver circuit, turns the paddle wheels through a gear drive, and the electronics sit in a waterproof compartment that stays accessible for battery changes. In its water test the boat floated stably and drove under its own power with steering control.",
       image: boatImage1,
-      images: [boatImage1, boatImage2, boatCad],
+      images: [boatImage1, boatImage2, boatRender, boatCad, ...boatDrawings],
       tags: [
         "3D Printing",
         "SolidWorks",
