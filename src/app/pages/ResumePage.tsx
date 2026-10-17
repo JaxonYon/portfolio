@@ -64,7 +64,7 @@ export function ResumePage() {
       title: "3D-Printed Motorized Boat",
       period: "2025",
       details: [
-        "Designed the hull and drivetrain in SolidWorks and printed in PLA as part of a three-person team; DC motor and paddle wheels, with electronics in a waterproof compartment",
+        "Designed the hull and drivetrain in SolidWorks and printed in PLA as part of a three-person team; DC motor and paddle wheels.",
       ],
     },
   ];
