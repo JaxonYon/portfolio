@@ -70,7 +70,7 @@ export function ProjectsPage() {
       ],
     },
     {
-      title: "Fledgling - Rocket Flight Computer",
+      title: "Fledgling V1 - Rocket Flight Computer",
       description:
         "A flight computer for a D12-powered rocket. It logs high-rate IMU and barometer data from just before liftoff, and runs a real-time apogee detector.",
       fullDescription:
@@ -98,7 +98,7 @@ export function ProjectsPage() {
       year: "2026",
       role: "Designer & Developer",
       teamSize: "1",
-      duration: "Sept 2026 - Present",
+      duration: "Sept 2026 - November 2026",
       challenges: [
         "Keeping up with 780 Hz IMU data while flash writes block the processor",
         "Capturing liftoff itself by buffering pre-trigger data",
