@@ -40,7 +40,8 @@ export function ResumePage() {
       status: "In progress",
       period: "2026",
       details: [
-        "Building a flight data logger for a D12-powered rocket on ESP32-S3 Feather with BMP388 barometer and LSM6DSO32 IMU, written in C++; implementing on-board apogee detection before first flight",
+        "Built a flight data logger for a D12-powered rocket on ESP32-S3 Feather with BMP388 barometer and LSM6DSO32 IMU, written in C++, with a Kalman-filter apogee detector running in shadow mode",
+        "Flown twice; on flight 2 the onboard filter flagged apogee 0.15 s after the barometric peak at 72 m",
         "Designed the avionics mounting in a scratch-built airframe",
       ],
     },

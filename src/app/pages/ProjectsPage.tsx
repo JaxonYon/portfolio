@@ -24,6 +24,10 @@ const habBuoyRig = "/images/hab-buoy-rig.jpg";
 const habBuoyChart = "/images/hab-buoy-run2-chart.png";
 const fledglingRocket = "/images/fledgling-rocket.jpg";
 const fledglingBreadboard = "/images/fledgling-breadboard.jpg";
+const fledglingProtoboardRocket = "/images/fledgling-protoboard-rocket.jpg";
+const fledglingParts = "/images/fledgling-parts.jpg";
+const fledglingAltitudeChart = "/images/fledgling-flight2-altitude.png";
+const fledglingMotorChart = "/images/fledgling-motor-burn.png";
 
 
 export function ProjectsPage() {
@@ -68,12 +72,19 @@ export function ProjectsPage() {
     {
       title: "Fledgling - Rocket Flight Computer",
       description:
-        "In progress: a flight data logger for a D12-powered rocket that records high-rate IMU and barometer data from just before liftoff through the flight.",
+        "A flight computer for a D12-powered rocket. It logs high-rate IMU and barometer data from just before liftoff, and runs a real-time apogee detector.",
       fullDescription:
-        "Fledgling is a flight computer built on an Adafruit Feather ESP32-S3, with an LSM6DSO32 IMU and a BMP388 barometer. The flight firmware is written from scratch in C++: it talks to both sensors at the register level, and the BMP388 pressure maths is written from the datasheet. On the pad it runs a 60-second countdown, checks that the rocket is nose-up before arming, then holds the last ~2.3 s of data in memory. Liftoff triggers on more than 3 g for 50 ms, or a 10 m barometric rise as a backup. It then records 120 s of accel and gyro data at about 780 Hz and pressure at 50 Hz to a dedicated 2 MB flash partition. A Python script pulls the log afterwards and verifies it with a checksum, and the board won't re-arm over a log that hasn't been downloaded. A piezo beeper signals each state, because there's no screen at the pad.",
-      image: fledglingRocket,
+        "Fledgling V1 is a flight computer built on an Adafruit Feather ESP32-S3, with an LSM6DSO32 IMU and a BMP388 barometer, assembled on a soldered protoboard. The flight firmware is written from scratch in C++.\n\nOn the pad it runs a 60-second countdown and checks that the rocket is nose-up before arming. It keeps the last ~2.3 s of data in memory, so the log captures ignition itself. Liftoff triggers on more than 3 g for 50 ms, or a 10 m barometric rise as a backup. The board then records 120 s of accel and gyro data at about 780 Hz and pressure at 50 Hz to a dedicated 2 MB flash partition.\n\nDuring flight, a two-state Kalman filter (altitude and velocity) combines the accelerometer and barometer, tracks the flight phases, and flags burnout, apogee and landing. The apogee detector runs in shadow mode: it logs when it would fire a deployment charge, but fires nothing. Recovery is still handled by the motor's ejection charge.\n\nBefore the first flight, I tuned the detector against an OpenRocket simulation of the rocket. A replay harness runs the same C++ flight code on a PC, over 1,000 Monte Carlo flights with randomised sensor and flight errors. Every simulated apogee was detected within 0.5 s.\n\nA Python script pulls each log afterwards and verifies it with a checksum. The board won't re-arm over a log that hasn't been downloaded.",
+      image: fledglingProtoboardRocket,
       showWholeImage: true,
-      images: [fledglingRocket, fledglingBreadboard],
+      images: [
+        fledglingProtoboardRocket,
+        fledglingParts,
+        fledglingRocket,
+        fledglingBreadboard,
+        fledglingAltitudeChart,
+        fledglingMotorChart,
+      ],
       tags: [
         "ESP32-S3",
         "C++",
@@ -89,15 +100,18 @@ export function ProjectsPage() {
       teamSize: "1",
       duration: "Sept 2026 - Present",
       challenges: [
-        "Keeping up with 780 Hz IMU data while flash writes block the processor; stress-tested the IMU buffer with simulated 100 ms stalls",
-        "Capturing liftoff itself by keeping pre-trigger data in a buffer, so the log doesn't start after the motor has already lit",
-        "Protecting the flight log from accidental erasure and making the board safe to arm at the pad without a laptop",
-        "Fitting the avionics into a scratch-built airframe",
+        "Keeping up with 780 Hz IMU data while flash writes block the processor",
+        "Capturing liftoff itself by buffering pre-trigger data",
+        "Flight 1: the barometer was offline from before launch and only came back while I was handling the board afterwards. Without it, the filter ran on the accelerometer alone. It assumed the rocket was vertical, so it drifted badly once the rocket was tumbling or lying on its side. The log's 16-bit fields clipped, which hid the divergence, and re-accepting the barometer reset altitude but not velocity, so the filter never recovered. The IMU still logged the whole flight. Both barometer dropouts lined up with physical shocks, which points to the protoboard connections.",
+        "Flight 2: barometer noise during coast pulled the filter's velocity down to 2.4 m/s while the rocket was still climbing at ~15 m/s. It never went negative, so there was no false apogee, but it shows where the detector needs more margin before it fires a real charge.",
       ],
       outcomes: [
-        "Flight logger firmware complete and bench-tested",
-        "Moved from a breadboard prototype to a soldered protoboard, installed in the airframe",
-        "Next: on-board apogee detection, then first flight",
+        "Flown twice back-to-back on Estes D12-5 motors (22 Nov 2026), with no repairs in between and complete IMU logs from both flights",
+        "Flight 2: the onboard filter tracked the barometer to a 72 m apogee and flagged apogee 0.15 s after the barometric peak",
+        "Measured the motor burn directly: ~18 g peak, ~3 g sustain, burnout at 1.47 s on both flights (4 ms apart)",
+        "Same motor, half the apogee: flight 2 left burnout at about 60° off vertical, against about 20° for flight 1, and reached 72 m against ~140 m (IMU estimate)",
+        "The fixed 5 s motor delay fired near apogee on flight 1 but 2.2 s late on flight 2. The chute came out at ~50 m with too little time to open, and the rocket landed at ~17 m/s without damage. That's the case for deploying the chute from the flight computer rather than a fixed delay.",
+        "Next: Custom PCB to prevent loose connections",
       ],
     },
     {

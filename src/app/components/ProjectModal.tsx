@@ -180,7 +180,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             {/* Full Description */}
             <div className="mb-8">
               <h3 className="text-xl text-slate-100 mb-4">Project Overview</h3>
-              <p className="text-slate-400 leading-relaxed">{project.fullDescription}</p>
+              <p className="text-slate-400 leading-relaxed whitespace-pre-line">{project.fullDescription}</p>
             </div>
 
             {/* Challenges */}
