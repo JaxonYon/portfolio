@@ -19,7 +19,7 @@ export function ResumePage() {
       school: "Saint Mary's University",
       location: "Halifax, Nova Scotia",
       period: "Sept 2025 - May 2027",
-      gpa: "4.18/4.30",
+      gpa: "4.16/4.30",
       highlights: [
         "Transferring to Dalhousie University, B.Eng. Mechanical (Sept 2027)",
       ],
@@ -54,7 +54,7 @@ export function ResumePage() {
       ],
     },
     {
-      title: "CloudToucher V1 — D-Class Model Rocket",
+      title: "CloudToucher — D-Class Model Rocket",
       period: "2026",
       details: [
         "Designed and built a D-class rocket in a two-person team, from concept and OpenRocket simulation through flight; 4 launches and recoveries with no major damage. Tuned stability margin (CG vs. CP) and thrust-to-weight in simulation before first flight",

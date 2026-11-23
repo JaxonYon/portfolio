@@ -28,6 +28,9 @@ const fledglingProtoboardRocket = "/images/fledgling-protoboard-rocket.jpg";
 const fledglingParts = "/images/fledgling-parts.jpg";
 const fledglingAltitudeChart = "/images/fledgling-flight2-altitude.png";
 const fledglingMotorChart = "/images/fledgling-motor-burn.png";
+const fledglingV2Assembled = "/images/fledgling-v2-assembled.jpg";
+const fledglingV2Layout = "/images/fledgling-v2-layout.png";
+const fledglingV2Schematic = "/images/fledgling-v2-schematic.png";
 
 
 export function ProjectsPage() {
@@ -36,6 +39,38 @@ export function ProjectsPage() {
     useState<any>(null);
 
   const projects = [
+    {
+      title: "Fledgling V2 - Custom Flight Computer PCB",
+      description:
+        "In progress: a custom PCB for the Fledgling flight computer, replacing the hand-wired protoboard that dropped its barometer on both V1 flights.",
+      fullDescription:
+        "Fledgling V2 is a custom circuit board for my rocket flight computer, built to fix the one thing that went wrong with V1. V1's barometer dropped out twice, both times right after a physical shock, while the IMU on the same board logged both flights in full. That pointed at the hand-soldered wiring on the protoboard, not the sensors or the code.\n\nI designed the replacement in KiCad: the schematic, custom footprints for the three Adafruit boards, and a 35 × 110 mm two-layer board where every connection is a copper trace instead of a wire. The Feather ESP32-S3, LSM6DSO32 IMU and BMP388 barometer solder straight onto the board, with nothing left to shake loose.\n\nThe electrical design keeps V1's pinout on purpose. The IMU stays on SPI with chip select on A5, the barometer on I²C, and the buzzer on D12, so the flight firmware, the Kalman filter and the replay harness carry over unchanged. Any difference between V1 and V2 flight data then comes from the hardware.\n\nBoth layers are poured with ground and stitched together with vias, giving every signal a short return path. Exposed 3.3 V and ground test points allow the supply to be probed without disturbing the sensors, and two mounting holes let the board be bolted down in the airframe.",
+      image: fledglingV2Assembled,
+      images: [fledglingV2Assembled, fledglingV2Layout, fledglingV2Schematic],
+      tags: [
+        "KiCad",
+        "PCB Design",
+        "ESP32-S3",
+        "Embedded Systems",
+        "Rocketry",
+      ],
+      categories: ["Rocketry"],
+      demo: "",
+      year: "2026",
+      role: "Designer & Builder",
+      teamSize: "1",
+      duration: "Oct 2026 - Present",
+      challenges: [
+        "Removing the barometer dropouts seen on both V1 flights, which lined up with physical shocks to the protoboard",
+        "Building accurate footprints for the Adafruit breakout boards so they line up on the first fabrication run",
+        "Routing SPI, I²C and the IMU interrupt on a narrow 35 mm board while keeping the ground pour unbroken",
+        "Keeping the V1 pinout so the flight-proven firmware runs unchanged on the new hardware",
+      ],
+      outcomes: [
+        "Schematic and two-layer layout designed in KiCad, with custom footprints for the Feather ESP32-S3, LSM6DSO32 and BMP388",
+        "Boards fabricated and assembled",
+      ],
+    },
     {
       title: "Harmful Algal Bloom Early-Warning Buoy",
       description:
@@ -115,7 +150,7 @@ export function ProjectsPage() {
       ],
     },
     {
-      title: "CloudToucher V1",
+      title: "CloudToucher",
       description:
         "Designed and built a fully functional D-class model rocket in a two-person team. 4 successful launches and recoveries.",
       fullDescription:
